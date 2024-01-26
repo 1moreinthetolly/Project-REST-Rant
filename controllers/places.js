@@ -18,6 +18,18 @@ router.get('/:id', (req, res) => {
   }
 })
 
+router.get('/:id/edit', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }  
+  else {
+    res.render('places/edit', {place: places[id], id })
+  }
+})
 
 router.get('/', (req, res) => { 
     res.render('places/index', {places})
