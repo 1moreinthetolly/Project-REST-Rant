@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
+    if (!req.body.pic) {
+      req.body.pic = 'http://placekitten.com/400/400'
+    }
+  //console.log(req.body)
     db.Place.create(req.body)
     .then(() => {
       res.redirect('/places')
