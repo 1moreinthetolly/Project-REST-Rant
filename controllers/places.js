@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const db = require('../models/mongoose_index')
+const db = require('../models')
 
 router.get('/', (req, res) => {
     db.Place.find()
